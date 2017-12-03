@@ -6,10 +6,10 @@
           <ul class="list-group">
                <li v-for="amvan in amvans" :key="amvan['.key']" :amvan="amvan" v-if="amvan.status == 'done'" class="list-group-item">
 			        <span class="glyphicon glyphicon-ok"></span>{{ amvan.desc }} 
-			        <span @click="removeAmvan(amvan['.key'])" class="glyphicon glyphicon-remove pull-right"></span> <span data-toggle="modal" data-target="#modalDone" class="glyphicon glyphicon-edit pull-right"></span> 
+			        <span @click="removeAmvan(amvan['.key'])" class="glyphicon glyphicon-remove pull-right"></span> <span data-toggle="modal" :data-target="`#${amvan['.key']}`" class="glyphicon glyphicon-edit pull-right"></span> 
 			        <span class="badge pull-left">{{ amvan.point }}</span> 
 			        <!-- Modal -->
-					<div class="modal fade" id="modalDone" tabindex="-1" role="dialog" 
+					<div class="modal fade" :id="amvan['.key']" tabindex="-1" role="dialog" 
 					     aria-labelledby="myModalLabel" aria-hidden="true">
 					    <div class="modal-dialog">
 					        <div class="modal-content">

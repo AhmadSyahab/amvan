@@ -8,9 +8,9 @@
    			 <li v-for="amvan in amvans" :key="amvan['.key']" :amvan="amvan" v-if="amvan.status == 'todo'" class="list-group-item">
    			 	<span class="glyphicon glyphicon-hand-right"></span> {{ amvan.desc }} 
    			 	<span @click="removeAmvan(amvan['.key'])" class="glyphicon glyphicon-remove pull-right"></span> 
-   			 	<span data-toggle="modal" data-target="#modalTodo" class="glyphicon glyphicon-edit pull-right"></span>  
+   			 	<span data-toggle="modal" :data-target="`#${amvan['.key']}`" class="glyphicon glyphicon-edit pull-right"></span>  
    			 	<span class="badge pull-left">{{ amvan.point }}</span>
-				<div class="modal fade" id="modalTodo" tabindex="-1" role="dialog" 
+				<div class="modal fade" :id="amvan['.key']" tabindex="-1" role="dialog" 
 				     aria-labelledby="myModalLabel" aria-hidden="true">
 				    <div class="modal-dialog">
 				        <div class="modal-content">
