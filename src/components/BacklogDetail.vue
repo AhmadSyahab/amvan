@@ -17,7 +17,7 @@
 			                       <span aria-hidden="true">&times;</span>
 			                       <span class="sr-only">Close</span>
 			                </button>
-			                <h4 class="modal-title" id="myModalLabel">
+			                <h4 class="modal-assignto" id="myModalLabel">
 			                    Add your question
 			                </h4>
 			            </div>
@@ -28,10 +28,10 @@
 			                <form class="form-horizontal" role="form">
 			                  <div class="form-group">
 			                    <label  class="col-sm-2 control-label"
-			                              for="title">Title</label>
+			                              for="assignto">AssignTo</label>
 			                    <div class="col-sm-10">
-			                        <input v-model="title" type="text" class="form-control" 
-			                        id="inputEmail3" :placeholder="amvan.title"/>
+			                        <input v-model="assignto" type="text" class="form-control" 
+			                        id="inputEmail3" :placeholder="amvan.assignto"/>
 			                    </div>
 			                  </div>
 			                  <div class="form-group">
@@ -81,7 +81,7 @@ export default {
 	props: ['amvan'],
 	data () {
 		return {
-			title: '',
+			assignto: '',
 			desc: '',
 			point: '',
 			status: ''

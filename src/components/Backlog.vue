@@ -6,10 +6,17 @@
       <ul class="list-group"  v-for="amvan in amvans" :key="amvan['.key']" :amvan="amvan" v-if="amvan.status == 'backlog'">
 	    <li  
 	    class="list-group-item">
-	    	<span class="glyphicon glyphicon-hand-right"></span> {{ amvan.desc }}  
+	    <div>
+	    	<span class="glyphicon glyphicon-ban-circle"></span> {{ amvan.desc }}
+	    </div>
+	    <div>
 	    	<span @click="removeAmvan(amvan['.key'])" class="glyphicon glyphicon-remove pull-right"></span> 
-	    	<span data-toggle="modal" :data-target="`#${amvan['.key']}`" class="glyphicon glyphicon-edit pull-right"></span> 
-	    	<span class="badge pull-left">{{ amvan.point }}</span> 
+	    </div>	
+	    <div>
+	    	<span data-toggle="modal" :data-target="`#${amvan['.key']}`" class="glyphicon glyphicon-edit pull-right"></span>
+	    </div>	
+	    	<span> <small> Assign To {{ amvan.assignto}} </small> </span>
+	    	<span class="badge pull-left"> <small> {{ amvan.point }} </small></span> 
 
 			<!-- Modal -->
 			<div class="modal fade" :id="amvan['.key']" tabindex="-1" role="dialog" 
@@ -23,7 +30,7 @@
 			                       <span aria-hidden="true">&times;</span>
 			                       <span class="sr-only">Close</span>
 			                </button>
-			                <h4 class="modal-title" id="myModalLabel">
+			                <h4 class="modal-assignto" id="myModalLabel">
 			                    Add your question
 			                </h4>
 			            </div>
@@ -34,10 +41,10 @@
 			                <form class="form-horizontal" role="form">
 			                  <div class="form-group">
 			                    <label  class="col-sm-2 control-label"
-			                              for="title">Title</label>
+			                              for="assignto">AssignTo</label>
 			                    <div class="col-sm-10">
-			                        <input v-model="title" type="text" class="form-control" 
-			                        id="inputEmail3" :placeholder="amvan.title"/>
+			                        <input v-model="assignto" type="text" class="form-control" 
+			                        id="inputEmail3" :placeholder="amvan.assignto"/>
 			                    </div>
 			                  </div>
 			                  <div class="form-group">
@@ -92,7 +99,7 @@ export default {
 	props: ['amvans'],
 	data () {
 		return {
-			title: '',
+			assignto: '',
 			desc: '',
 			point: '',
 			status: ''
@@ -106,7 +113,7 @@ export default {
 		editAmvan(key, exist) {
 			console.log(exist)
 			amvanRef.child(key).update({
-				title: this.title || exist.title, 
+				assignto: this.assignto || exist.assignto, 
 				desc: this.desc || exist.desc,
 				point: this.point || exist.point,
 				status: this.status || exist.status

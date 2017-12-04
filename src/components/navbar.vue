@@ -23,7 +23,7 @@
               <span aria-hidden="true">×</span>
               <span class="sr-only">Close</span>
               </button>
-              <h4 class="modal-title" id="myModalLabel">
+              <h4 class="modal-assignto" id="myModalLabel">
                 Add Task
               </h4>
             </div>
@@ -31,8 +31,8 @@
             <div class="modal-body">
               <form class="form-horizontal" role="form">
                 <div class="form-group">
-                  <label for="task_title">Task Title:</label>
-                  <input v-model="newAmvan.title"type="text" class="form-control" placeholder="Enter task name"  id="task_title" name="task_title">
+                  <label for="task_assignto">AsiggnTo:</label>
+                  <input v-model="newAmvan.assignto"type="text" class="form-control" placeholder="Assign To"  id="task_assignto" name="task_assignto">
                 </div>
                 <div class="form-group">
                   <label for="task_details">Task Details:</label>
@@ -73,7 +73,7 @@ export default {
 	data () {
 		return {
 			newAmvan: {
-				title: '',
+				assignto: '',
 				desc: '',
 				point: '',
 				status: ''
