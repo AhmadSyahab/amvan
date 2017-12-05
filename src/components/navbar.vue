@@ -51,7 +51,7 @@
                     <option value="done">Done</option>
                   </select>
                 </div>
-                <button @click="addTask" class="btn btn-primary">Submit</button>
+                <button @click="addTask" data-dismiss="modal" class="btn btn-primary">Submit</button>
               </form>
             </div>
             <!-- Modal Footer -->
